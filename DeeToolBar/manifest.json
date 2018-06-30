@@ -6,8 +6,8 @@
   "description": "Adds a browser action icon to the toolbar to take control of deezer tab.",
 
   "icons": {
-    "48": "Content/play.png",
-    "96": "Content/play.png"
+    "48": "Content/icons/classic/play.png",
+    "96": "Content/icons/classic/play.png"
   },
   "applications": {
     "gecko": {

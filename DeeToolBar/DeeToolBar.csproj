@@ -28,19 +28,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Background\options.html" />
-    <Content Include="Content\ban.png" />
     <Content Include="Content\deezer-icon.png" />
-    <Content Include="Content\liked.png" />
-    <Content Include="Content\next.png" />
-    <Content Include="Content\notLiked.png" />
-    <Content Include="Content\off.png" />
-    <Content Include="Content\on.png" />
-    <Content Include="Content\pause.png" />
-    <Content Include="Content\play.png" />
-    <Content Include="Content\playlist.png" />
-    <Content Include="Content\playpause.png" />
-    <Content Include="Content\prev.png" />
+    <Content Include="Content\icons\classic\ban.png" />
+    <Content Include="Content\icons\classic\liked.png" />
+    <Content Include="Content\icons\classic\next.png" />
+    <Content Include="Content\icons\classic\notLiked.png" />
+    <Content Include="Content\icons\classic\off.png" />
+    <Content Include="Content\icons\classic\on.png" />
+    <Content Include="Content\icons\classic\pause.png" />
+    <Content Include="Content\icons\classic\play.png" />
+    <Content Include="Content\icons\classic\playlist.png" />
+    <Content Include="Content\icons\classic\playpause.png" />
+    <Content Include="Content\icons\classic\prev.png" />
     <Content Include="Content\preview.png" />
+    <Content Include="Content\icons\material\ban.svg" />
+    <Content Include="Content\icons\material\liked.svg" />
+    <Content Include="Content\icons\material\next.svg" />
+    <Content Include="Content\icons\material\notLiked.svg" />
+    <Content Include="Content\icons\material\off.svg" />
+    <Content Include="Content\icons\material\on.svg" />
+    <Content Include="Content\icons\material\pause.svg" />
+    <Content Include="Content\icons\material\play.svg" />
+    <Content Include="Content\icons\material\playlist.svg" />
+    <Content Include="Content\icons\material\playpause.svg" />
+    <Content Include="Content\icons\material\prev.svg" />
     <Content Include="content_scripts\actions.js" />
     <Content Include="Popup\DeeCtrl.html" />
     <TypeScriptCompile Include="Popup\deeCtrl.ts" />
@@ -49,11 +60,6 @@
   <ItemGroup>
     <Content Include="manifest.json" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

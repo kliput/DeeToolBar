@@ -1,15 +1,27 @@
 ﻿declare var browser;
 
+const defaultSettings = {
+    colour: 'white',
+    icons: 'material'
+};
+
+const settingsKeys: string[] = Object.keys(defaultSettings);
+
 function saveOptions(e) {
-    browser.storage.local.set({
-        colour: document.querySelector("#colour")["value"]
+    const localStorage = browser.storage.local;
+    settingsKeys.forEach((key) => {
+        localStorage.set(key, document.getElementById(key)['value']);
     });
 }
 function restoreOptions() {
-    browser.storage.local.get('colour', (res) => {
-        if (res["colour"] == null)
-            res["colour"] = "white";
-        document.querySelector('#colour')["value"] = res["colour"];
+    const localStorage = browser.storage.local;
+    localStorage.get(settingsKeys, (res) => {
+        settingsKeys.forEach((key) => {
+            if (res[key] == null) {
+                res[key] = defaultSettings[key];
+            }
+            document.getElementById(key)['value'] = res[key];
+        });
     });
 }
 
