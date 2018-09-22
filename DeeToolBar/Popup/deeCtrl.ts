@@ -5,6 +5,16 @@ const iconSetFormats = {
     material: 'svg'
 };
 
+const iconMapping = {
+    Like: 'notLiked',
+    Ban: 'ban',
+    Play: 'playpause',
+    Playlist: 'playlist',
+    Prev: 'prev',
+    Next: 'next',
+    Shortcuts: 'off'
+};
+
 browser.storage.local.get(['colour', 'icons'], ({ colour, icons }) => {
     document.getElementById("popupBody").setAttribute("style", "background-color:" + colour + ";")
     const iconSetFormat = iconSetFormats[icons] || 'png';
@@ -55,11 +65,7 @@ function SetIcon(elementId: string, iconName: string, iconSetName: string, forma
 }
 
 function SetIconSources(iconSetName: string, iconSetFormat: string) {
-    SetIcon('Like', 'notLiked', iconSetName, iconSetFormat);
-    SetIcon('Ban', 'ban', iconSetName, iconSetFormat);
-    SetIcon('Play', 'playpause', iconSetName, iconSetFormat);
-    SetIcon('Playlist', 'playlist', iconSetName, iconSetFormat);
-    SetIcon('Prev', 'prev', iconSetName, iconSetFormat);
-    SetIcon('Next', 'next', iconSetName, iconSetFormat);
-    SetIcon('Shortcuts', 'off', iconSetName, iconSetFormat);
+    for (let buttonId in iconMapping) {
+        SetIcon(buttonId, iconMapping[buttonId], iconSetName, iconSetFormat);
+    }
 }

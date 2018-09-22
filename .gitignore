@@ -2,4 +2,5 @@
 /DeeToolBar/bin
 /DeeToolBar/Background/*.map
 *.map
-*.js
+/DeeToolBar/Delivery/*.js
+node_modules
