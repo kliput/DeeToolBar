@@ -1,3 +1,9 @@
+// Copyright 2018 Jakub Liput
+// MIT License, see LICENSE file
+
+// Build project using: npm install && npm run-script build
+// Result files will be stored in DeeToolBar/Delivery
+
 const {
     spawn
 } = require('child_process');

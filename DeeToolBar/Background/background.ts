@@ -1,9 +1,25 @@
-﻿
+﻿import { getOptions } from './options';
+
 declare var browser;
+
 
 browser.runtime.onMessage.addListener(controller);
 
 let _isShorcutsActive: boolean = false;
+
+export const defaultSettings = {
+    colour: 'white',
+    icons: 'material'
+};
+
+getOptions().then(storedSettings => {
+    for (let key in storedSettings) {
+        if (storedSettings[key] === undefined) {
+            browser.storage.local.set({ [key]: defaultSettings[key] });
+        }
+    }
+
+});
 
 function controller(request, sender, callback) {
     if (request.action == 'LikeStatus')

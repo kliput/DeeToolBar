@@ -1,25 +1,24 @@
 ﻿declare var browser;
-
-const defaultSettings = {
-    colour: 'white',
-    icons: 'material'
-};
+import { defaultSettings } from './background';
 
 const settingsKeys: string[] = Object.keys(defaultSettings);
 
-function saveOptions(e) {
+export function saveOptions() {
     const localStorage = browser.storage.local;
-    settingsKeys.forEach((key) => {
-        localStorage.set(key, document.getElementById(key)['value']);
+    const settings = {};
+    settingsKeys.forEach(function (key) {
+        settings[key] = document.getElementById(key)['value']; 
     });
+    localStorage.set(settings);
 }
-function restoreOptions() {
-    const localStorage = browser.storage.local;
-    localStorage.get(settingsKeys, (res) => {
+
+export function getOptions(): Promise<object> {
+    return browser.storage.local.get(settingsKeys);
+}
+
+export function restoreOptions() {
+    getOptions().then(res => {
         settingsKeys.forEach((key) => {
-            if (res[key] == null) {
-                res[key] = defaultSettings[key];
-            }
             document.getElementById(key)['value'] = res[key];
         });
     });

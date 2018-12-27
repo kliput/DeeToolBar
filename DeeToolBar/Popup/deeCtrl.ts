@@ -15,7 +15,14 @@ const iconMapping = {
     Shortcuts: 'off'
 };
 
+const settings = {
+    colour: undefined,
+    icons: undefined,
+}
+
 browser.storage.local.get(['colour', 'icons'], ({ colour, icons }) => {
+    settings.colour = colour;
+    settings.icons = icons;
     document.getElementById("popupBody").setAttribute("style", "background-color:" + colour + ";")
     const iconSetFormat = iconSetFormats[icons] || 'png';
     SetIconSources(icons, iconSetFormat);
@@ -45,15 +52,17 @@ browser.storage.local.get('icons', (res) => {
 });
 
 function UpdateShortcutsStatus(status) {
-    var src = "../Content/";
-    src += status ? "on.png" : "off.png";
+    const src = IconPath(settings.icons, status ? 'on' : 'off', iconSetFormats[settings.icons]);
     document.getElementById("Shortcuts").setAttribute("src", src);
 }
 
 function UpdateLikeStatus(status) {
-    var src = "../Content/";
-    src += status ? "liked.png" : "notLiked.png";
+    const src = IconPath(settings.icons, status ? 'liked' : 'notLiked', iconSetFormats[settings.icons]);
     document.getElementById("Like").setAttribute("src", src);
+}
+
+function IconPath(iconSetName: string, iconName: string, format: string) {
+    return `../Content/icons/${iconSetName}/${iconName}.${format}`;
 }
 
 function SetSrc(elementId: string, src: string) {
@@ -66,6 +75,7 @@ function SetIcon(elementId: string, iconName: string, iconSetName: string, forma
 
 function SetIconSources(iconSetName: string, iconSetFormat: string) {
     for (let buttonId in iconMapping) {
+        console.log(`Setting icon: ${buttonId}, ${iconMapping[buttonId]}, ${iconSetName}, ${iconSetFormat}`);
         SetIcon(buttonId, iconMapping[buttonId], iconSetName, iconSetFormat);
     }
 }
